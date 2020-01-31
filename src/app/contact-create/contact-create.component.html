@@ -1,0 +1,14 @@
+<h3>New Contact</h3>
+
+<form [formGroup]="createContactForm" (ngSubmit)="onSubmit(createContactForm.value)">
+
+    <label>Name:</label>
+    <input id="name" />
+
+    <label>Number:</label>
+    <input id="number" type="number"/>
+
+    <label>E-Mail:</label>
+    <input id="mail"/>
+
+</form>
