@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder } from '@angular/forms';
 import { ContactService } from '../contact.service';
 
 @Component({
@@ -17,7 +16,6 @@ export class ContactUpdateComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private formBuilder: FormBuilder,
     private contactService: ContactService,
     private router: Router
   ) {
@@ -26,13 +24,17 @@ export class ContactUpdateComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      this.contact = this.contacts[+params.get('contact')];
+      this.contact = this.contacts[+params.get('contactId')];
       this.id = +params.get('contactId')
     })
   }
 
-  onSubmit() {
-    this.contactService.update(this.id, this.contact);
+  onSubmitUpdate() {
+    this.contactService.updateContact(this.id, this.contact);
     this.router.navigate(['/contacts/', this.id])
+  }
+
+  onSubmitDelete() {
+    this.contactService.removeContact(this.id);
   }
 }

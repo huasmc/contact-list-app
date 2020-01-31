@@ -19,7 +19,7 @@ export class ContactService {
     localStorage.setItem('contacts', JSON.stringify({ contacts }));
   }
 
-  update(id, contact) {
+  updateContact(id, contact) {
     let contacts = this.getContacts();
     contacts[id] = contact;
     localStorage.setItem('contacts', JSON.stringify({ contacts }));
@@ -30,5 +30,11 @@ export class ContactService {
     //     contact[i].description = contact.description;
     //   }
     // }
+  }
+
+  removeContact(id) {
+    let contacts = this.getContacts();
+    delete contacts[id];
+    localStorage.setItem('contacts', JSON.stringify({ contacts }));
   }
 }

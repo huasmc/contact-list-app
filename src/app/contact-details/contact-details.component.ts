@@ -24,7 +24,6 @@ export class ContactDetailsComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.contact = this.contacts[+params.get('contactId')];
       this.id = +params.get('contactId')
-      console.log(this.id)
     })
   }
 

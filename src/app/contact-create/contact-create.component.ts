@@ -28,7 +28,6 @@ export class ContactCreateComponent implements OnInit {
   }
 
   onSubmit(contactData) {
-    console.warn(contactData);
     this.contactService.addContact(contactData);
     this.router.navigate(['/']);
   }

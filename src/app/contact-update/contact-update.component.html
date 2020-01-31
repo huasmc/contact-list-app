@@ -13,8 +13,8 @@
         <input id="email" [(ngModel)]="contact.email" placeholder="-"/>
 
         <label></label>
-        <input type="submit" value="Update" (click)="onSubmit()"/>
-        <input id="delete" type="submit" value="Delete"/>
+        <input type="submit" value="Update" (click)="onSubmitUpdate()"/>
+        <input (click)="onSubmitDelete()" id="delete" type="submit" value="Delete"/>
 
     </div>
 
