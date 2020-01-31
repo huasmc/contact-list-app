@@ -13,17 +13,6 @@ export class ContactListComponent implements OnInit {
   constructor(private contactService: ContactService) { }
 
   ngOnInit() {
-    localStorage.clear()
-    this.tempContact();
     this.contacts = this.contactService.getContacts();
   }
-
-  tempContact() {
-    var contacts = [
-      {"name": "Lluffy", "number": "809-545-4067" }, 
-      {"name": "Luna", "number": "809-532-7293" }
-  ]
-    localStorage.setItem('contacts', JSON.stringify({ contacts: contacts}));
-  }
-
 }
