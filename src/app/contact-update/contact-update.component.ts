@@ -32,7 +32,8 @@ export class ContactUpdateComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.id)
     this.contactService.update(this.id, this.contact);
+    this.router.navigate(['/contacts/', this.id])
   }
-
 }
