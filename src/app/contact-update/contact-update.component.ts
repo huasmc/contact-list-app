@@ -36,5 +36,6 @@ export class ContactUpdateComponent implements OnInit {
 
   onSubmitDelete() {
     this.contactService.removeContact(this.id);
+    this.router.navigate(['/']);
   }
 }
