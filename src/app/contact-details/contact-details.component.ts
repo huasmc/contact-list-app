@@ -9,6 +9,7 @@ import { ContactService } from '../contact.service';
 })
 export class ContactDetailsComponent implements OnInit {
 
+  id;
   contact;
   contacts;
 
@@ -22,7 +23,8 @@ export class ContactDetailsComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.contact = this.contacts[+params.get('contactId')];
-      console.log(this.contact);
+      this.id = +params.get('contactId')
+      console.log(this.id)
     })
   }
 

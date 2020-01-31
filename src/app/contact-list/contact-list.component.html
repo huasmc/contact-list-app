@@ -1,11 +1,11 @@
 <div *ngFor="let contact of contacts; index as contactId">
     <a [routerLink]="['/contacts', contactId]">
-        <div class="contact-row">
-            <h1>
+        <div class="contact-row" *ngIf="contact">
+            <h1 >
                 <a>{{ contact.name }}</a>
             </h1>
 
-            <h3 *ngIf="contact.number">
+            <h3>
                 {{ contact.number }}
             </h3>
         </div>

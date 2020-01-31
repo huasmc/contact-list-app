@@ -10,6 +10,7 @@ import { ContactService } from '../contact.service';
 })
 export class ContactUpdateComponent implements OnInit {
 
+  id;
   contact;
   updateForm;
   contacts;
@@ -19,14 +20,19 @@ export class ContactUpdateComponent implements OnInit {
     private formBuilder: FormBuilder,
     private contactService: ContactService,
     private router: Router
-  ) { }
+  ) {
+    this.contacts = this.contactService.getContacts();
+   }
 
   ngOnInit() {
-    this.contacts = this.contactService.getContacts();
-
     this.route.paramMap.subscribe(params => {
       this.contact = this.contacts[+params.get('contact')];
+      this.id = +params.get('contactId')
     })
+  }
+
+  onSubmit() {
+    this.contactService.update(this.id, this.contact);
   }
 
 }

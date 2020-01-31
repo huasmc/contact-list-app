@@ -14,8 +14,21 @@ export class ContactService {
 
   addContact(contact) {
     let contacts = this.getContacts();
-    contacts.id = contacts.length;
-    contacts.push(contact);
-    localStorage.setItem('contacts', JSON.stringify({ contacts: contacts }));
+    var key = contacts.length;
+    contacts[key] = contact
+    localStorage.setItem('contacts', JSON.stringify({ contacts }));
+  }
+
+  update(id, contact) {
+    let contacts = this.getContacts();
+    contacts[id] = contact;
+    localStorage.setItem('contacts', JSON.stringify({ contacts }));
+    // for (var i = 0; i < contacts.length; i++ ) {
+    //   if( contacts[i].name = contact.id ) {
+    //     contacts[i].name = contact.name;
+    //     contact[i].number = contact.number;
+    //     contact[i].description = contact.description;
+    //   }
+    // }
   }
 }

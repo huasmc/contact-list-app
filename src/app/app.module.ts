@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { ContactListComponent } from './contact-list/contact-list.component';
@@ -22,6 +22,7 @@ import { ContactUpdateComponent } from './contact-update/contact-update.componen
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    FormsModule,
     RouterModule.forRoot([
       { path: '', component: ContactListComponent },
       { path: 'create', component: ContactCreateComponent },

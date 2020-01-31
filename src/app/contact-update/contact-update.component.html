@@ -1,21 +1,21 @@
 <div class="center">
     <h3>Edit Contact</h3>
 
-    <form [formGroup]="updateForm" (ngSubmit)="onSubmit(updateForm.value)">
+    <div *ngIf="contact">
 
         <label>Name:</label>
-        <input id="name" value="{{ contact.name }}" placeholder="-"/>
+        <input id="name" [(ngModel)]="contact.name"  placeholder="-"/>
 
         <label>Number:</label>
-        <input id="number"  value="{{ contact.number }}" placeholder="-"/>
+        <input id="number"  [(ngModel)]="contact.number" placeholder="-"/>
 
         <label>E-Mail:</label>
-        <input id="email" value="{{ contact.email }}" placeholder="-"/>
+        <input id="email" [(ngModel)]="contact.email" placeholder="-"/>
 
         <label></label>
-        <input type="submit" value="Update"/>
+        <input type="submit" value="Update" (click)="onSubmit()"/>
         <input id="delete" type="submit" value="Delete"/>
 
-    </form>
+    </div>
 
 </div>
