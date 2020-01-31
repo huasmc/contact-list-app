@@ -15,7 +15,7 @@ import { ContactListComponent } from './contact-list/contact-list.component';
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-      // { path: '', component: },
+      { path: '', component: ContactListComponent },
     ])
   ],
   providers: [],

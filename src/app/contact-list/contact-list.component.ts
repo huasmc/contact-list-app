@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContactService } from '../contact.service';
 
 @Component({
   selector: 'app-contact-list',
@@ -9,10 +10,20 @@ export class ContactListComponent implements OnInit {
 
   contacts;
 
-  constructor() { }
+  constructor(private contactService: ContactService) { }
 
   ngOnInit() {
-    this.contacts = [];
+    localStorage.clear()
+    this.tempContact();
+    this.contacts = this.contactService.getContacts();
+  }
+
+  tempContact() {
+    var contacts = [
+      {"name": "fluffy", "color": "white" }, 
+      {"name": "luna", "color": "black" }
+  ]
+    localStorage.setItem('contacts', JSON.stringify({ contacts: contacts}));
   }
 
 }
