@@ -1,5 +1,9 @@
 <div class="contact-row" *ngFor="let contact of contacts">
-    <h3>
+    <h1>
         <a>{{ contact.name }}</a>
+    </h1>
+
+    <h3 *ngIf="contact.number">
+        {{ contact.number }}
     </h3>
 </div>

@@ -20,8 +20,8 @@ export class ContactListComponent implements OnInit {
 
   tempContact() {
     var contacts = [
-      {"name": "fluffy", "color": "white" }, 
-      {"name": "luna", "color": "black" }
+      {"name": "Lluffy", "number": "809-545-4067" }, 
+      {"name": "Luna", "number": "809-532-7293" }
   ]
     localStorage.setItem('contacts', JSON.stringify({ contacts: contacts}));
   }

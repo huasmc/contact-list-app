@@ -1,0 +1,26 @@
+/* Component */
+
+:host {
+    width: 100%;
+}
+
+/* Contact Row */
+
+.contact-row {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 0.15px solid gray;
+    padding: 0 4% 0 4%;
+}
+
+.contact-row:hover {
+    padding: -10px;
+    background-color: #1976d217;
+}
+
+/* Number */
+
+h3 {
+    margin: none !important;
+}
+
