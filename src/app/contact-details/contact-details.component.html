@@ -1,0 +1,20 @@
+<div class="center">
+    <h3>Contact Details</h3>
+
+    <div *ngIf="contact">
+
+        <label>Name:</label>
+        <input id="name" value="{{ contact.name }}" readonly/>
+
+        <label>Number:</label>
+        <input id="number"  value="{{ contact.number }}" readonly/>
+
+        <label>E-Mail:</label>
+        <input id="email" value="{{ contact.email }}" readonly/>
+
+        <label></label>
+        <input type="submit" value="Submit"/>
+
+    </div>
+
+</div>

@@ -24,3 +24,8 @@ h3 {
     margin: none !important;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+  }
+
