@@ -1,5 +1,5 @@
 <div class="center">
-    <h3>Contact Details</h3>
+    <h3>Edit Contact</h3>
 
     <div *ngIf="contact">
 
@@ -13,7 +13,7 @@
         <input id="email" value="{{ contact.email }}" placeholder="-" readonly/>
 
         <label></label>
-        <input type="submit" [routerLink]="['/contacts/update/', contact.id]" value="Edit"/>
+        <input type="submit" [routerLink]="['/']" value="Edit"/>
 
     </div>
 

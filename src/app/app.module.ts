@@ -8,6 +8,7 @@ import { ContactListComponent } from './contact-list/contact-list.component';
 import { ContactCreateComponent } from './contact-create/contact-create.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContactDetailsComponent } from './contact-details/contact-details.component';
+import { ContactUpdateComponent } from './contact-update/contact-update.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ContactDetailsComponent } from './contact-details/contact-details.compo
     TopBarComponent,
     ContactListComponent,
     ContactCreateComponent,
-    ContactDetailsComponent
+    ContactDetailsComponent,
+    ContactUpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +26,7 @@ import { ContactDetailsComponent } from './contact-details/contact-details.compo
       { path: '', component: ContactListComponent },
       { path: 'create', component: ContactCreateComponent },
       { path: 'contacts/:contactId', component: ContactDetailsComponent },
+      { path: 'contacts/update/:contactId', component: ContactUpdateComponent },
     ])
   ],
   providers: [],
