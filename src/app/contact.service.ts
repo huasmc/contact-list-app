@@ -41,4 +41,10 @@ export class ContactService {
     }
     return numbers;
   }
+
+  removeNumber(contactId, numberId) {
+    let contacts = this.getContacts();
+    delete contacts[contactId].numbers[numberId];
+    localStorage.setItem('contacts', JSON.stringify({ contacts: contacts }));
+  }
 }

@@ -6,11 +6,12 @@
         <label>Name:</label>
         <input type="text" [(ngModel)]="contact.name"  placeholder="-"/>
 
-        <label>Numbers:<i (click)="addInput()" class="material-icons" >add_circle_outline</i></label>
+        <label>Numbers:<i (click)="addInput()" id="add-number" class="material-icons" >add_circle_outline</i></label>
         <input type="number" [(ngModel)]="contact.numbers[0]" placeholder="phone number"/>
         
         <div *ngFor="let number of counter(numInputs), let i = index">
             <input type="number" [(ngModel)]="contact.numbers[i + 1]" placeholder="phone number">
+            <i (click)="removeNumber(i + 1)" id="remove-number" class="material-icons" >remove_circle_outline</i>
         </div>
 
         <label>E-Mail:</label>

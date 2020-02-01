@@ -32,6 +32,11 @@ export class ContactUpdateComponent implements OnInit {
     this.numInputs = this.contactService.getNumbers(this.contact).length - 1;
   }
 
+  removeNumber(numberId) {
+    console.log(numberId)
+    this.contactService.removeNumber(this.id, numberId);
+  }
+
   counter(i: number) {
     return new Array(i);
   }
