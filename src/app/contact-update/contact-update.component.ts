@@ -35,6 +35,7 @@ export class ContactUpdateComponent implements OnInit {
   removeNumber(numberId) {
     console.log(numberId)
     this.contactService.removeNumber(this.id, numberId);
+    this.router.navigate(['/contacts/', this.id]);
   }
 
   counter(i: number) {
