@@ -18,11 +18,11 @@ export class ContactUpdateComponent implements OnInit {
     private route: ActivatedRoute,
     private contactService: ContactService,
     private router: Router
-  ) {
-    this.contacts = this.contactService.getContacts();
-   }
+  ) { }
 
   ngOnInit() {
+    this.contacts = this.contactService.getContacts();
+
     this.route.paramMap.subscribe(params => {
       this.contact = this.contacts[+params.get('contactId')];
       this.id = +params.get('contactId')

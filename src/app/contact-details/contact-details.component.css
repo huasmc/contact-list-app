@@ -1,5 +1,25 @@
+/* Input Fields */
+
+input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
 /* Edit Button */
 
 input[type="submit"] {
-    background-color: #2edc34 !important;
-  }
+    background-color: #2edc34;
+}
+
+/* Back Button */ 
+
+input[type=button] {
+    width: 100%;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: rgba(144, 144, 144, 0.472);
+    border: none;
+    color: white;
+}

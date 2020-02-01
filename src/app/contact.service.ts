@@ -16,25 +16,18 @@ export class ContactService {
     let contacts = this.getContacts();
     var key = contacts.length;
     contacts[key] = contact
-    localStorage.setItem('contacts', JSON.stringify({ contacts }));
+    localStorage.setItem('contacts', JSON.stringify({ contacts: contacts }));
   }
 
   updateContact(id, contact) {
     let contacts = this.getContacts();
     contacts[id] = contact;
-    localStorage.setItem('contacts', JSON.stringify({ contacts }));
-    // for (var i = 0; i < contacts.length; i++ ) {
-    //   if( contacts[i].name = contact.id ) {
-    //     contacts[i].name = contact.name;
-    //     contact[i].number = contact.number;
-    //     contact[i].description = contact.description;
-    //   }
-    // }
+    localStorage.setItem('contacts', JSON.stringify({ contacts: contacts }));
   }
 
   removeContact(id) {
     let contacts = this.getContacts();
     delete contacts[id];
-    localStorage.setItem('contacts', JSON.stringify({ contacts }));
+    localStorage.setItem('contacts', JSON.stringify({ contacts: contacts }));
   }
 }

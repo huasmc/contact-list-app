@@ -16,8 +16,7 @@ export class ContactCreateComponent implements OnInit {
     private formBuilder: FormBuilder,
     private contactService: ContactService,
     private router: Router,
-    ) {
- }
+    ) { }
 
   ngOnInit() {
       this.createContactForm = this.formBuilder.group({

@@ -2,7 +2,7 @@
     <a [routerLink]="['/contacts', contactId]">
         <div class="contact-row" *ngIf="contact">
             <h1 >
-                <a>{{ contact.name }}</a>
+                <a>{{ contact.name | uppercase }}</a>
             </h1>
 
             <h3>
