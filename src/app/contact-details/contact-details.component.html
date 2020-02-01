@@ -9,7 +9,9 @@
         <label>Numbers</label>
         <div>        
             <div *ngFor="let key of Object.keys(contact.numbers)">
-                <input type="number" value="{{ contact.numbers[key] }}" placeholder="phone number" readonly>
+                <div *ngIf="contact.numbers[key]">
+                    <input type="number" value="{{ contact.numbers[key] }}" placeholder="phone number" readonly>
+                </div>
             </div>
         </div>
         <label>E-Mail:</label>

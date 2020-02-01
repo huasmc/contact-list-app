@@ -11,7 +11,6 @@
             <input type="number" formControlName="0" placeholder="phone number"/>
         
             <div *ngFor="let number of counter(numInputs); let i = index">
-                <label>{{i}}</label>
                 <input type="number" formControlName="{{i + 1}}" placeholder="phone number">
             </div>
         </div>

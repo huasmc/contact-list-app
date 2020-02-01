@@ -9,8 +9,8 @@
         <label>Numbers:<i (click)="addInput()" class="material-icons" >add_circle_outline</i></label>
         <input type="number" [(ngModel)]="contact.numbers[0]" placeholder="phone number"/>
         
-        <div *ngFor="let number of counter(numInputs)">
-            <input type="number" [(ngModel)]="contact.numbers[number]" placeholder="phone number">
+        <div *ngFor="let number of counter(numInputs), let i = index">
+            <input type="number" [(ngModel)]="contact.numbers[i + 1]" placeholder="phone number">
         </div>
 
         <label>E-Mail:</label>

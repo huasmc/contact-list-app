@@ -30,4 +30,15 @@ export class ContactService {
     delete contacts[id];
     localStorage.setItem('contacts', JSON.stringify({ contacts: contacts }));
   }
+
+  getNumbers(contact) {
+    let numbers = [];
+    let numObject = contact.numbers;
+    for(let key in contact.numbers) {
+      if (numObject[key]) {
+        numbers.push(numObject[key]);
+      }
+    }
+    return numbers;
+  }
 }
