@@ -13,6 +13,7 @@ export class ContactUpdateComponent implements OnInit {
   contact;
   updateForm;
   contacts;
+  numInputs: number = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -27,6 +28,16 @@ export class ContactUpdateComponent implements OnInit {
       this.contact = this.contacts[+params.get('contactId')];
       this.id = +params.get('contactId')
     })
+  }
+
+  counter(i: number) {
+    return new Array(i);
+  }
+
+  addInput() {
+    if(this.numInputs < 2) {
+      this.numInputs++;
+    }
   }
 
   onSubmitUpdate() {

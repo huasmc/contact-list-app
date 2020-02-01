@@ -3,3 +3,8 @@
 input[type=submit] {
     background-color: #1976d2;
 }
+
+i {
+    cursor: pointer;
+    color: rgb(48, 206, 48);
+}

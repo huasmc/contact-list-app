@@ -11,18 +11,33 @@ import { Router } from '@angular/router';
 export class ContactCreateComponent implements OnInit {
 
   createContactForm;
+  numInputs: number = 0;
 
   constructor(
     private formBuilder: FormBuilder,
     private contactService: ContactService,
     private router: Router,
-    ) { }
+  ) { }
+
+  counter(i: number) {
+    return new Array(i);
+  }
+
+  addInput() {
+    if (this.numInputs < 2) {
+      this.numInputs++;
+    }
+  }
 
   ngOnInit() {
-      this.createContactForm = this.formBuilder.group({
-        name: '',
-        number: '',
-        email: ''
+    this.createContactForm = this.formBuilder.group({
+      name: '',
+      email: '',
+      numbers: this.formBuilder.group({ // make a nested group
+        0: '',
+        1: '',
+        2: '',
+      }),
     })
   }
 

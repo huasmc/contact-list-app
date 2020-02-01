@@ -13,3 +13,8 @@ input[type=submit] {
     color: white;
     border: none;
 }
+
+i {
+    cursor: pointer;
+    color: rgb(48, 206, 48);
+}

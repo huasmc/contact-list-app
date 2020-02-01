@@ -4,13 +4,17 @@
     <div *ngIf="contact">
 
         <label>Name:</label>
-        <input id="name" [(ngModel)]="contact.name"  placeholder="-"/>
+        <input type="text" [(ngModel)]="contact.name"  placeholder="-"/>
 
-        <label>Number:</label>
-        <input id="number"  [(ngModel)]="contact.number" placeholder="-"/>
+        <label>Numbers:<i (click)="addInput()" class="material-icons" >add_circle_outline</i></label>
+        <input type="number" [(ngModel)]="contact.numbers[0]" placeholder="phone number"/>
+        
+        <div *ngFor="let number of counter(numInputs)">
+            <input type="number" [(ngModel)]="contact.numbers[number]" placeholder="phone number">
+        </div>
 
         <label>E-Mail:</label>
-        <input id="email" [(ngModel)]="contact.email" placeholder="-"/>
+        <input type="email" [(ngModel)]="contact.email" placeholder="-"/>
 
         <label></label>
         <input type="submit" value="Update" (click)="onSubmitUpdate()"/>

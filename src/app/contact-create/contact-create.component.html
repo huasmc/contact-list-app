@@ -6,8 +6,16 @@
         <label>Name:</label>
         <input id="name" formControlName="name" />
 
-        <label>Number:</label>
-        <input id="number" type="number" formControlName="number" />
+        <label>Numbers:<i (click)="addInput()" class="material-icons" >add_circle_outline</i></label>
+        <div formGroupName="numbers">
+            <input type="number" formControlName="0" placeholder="phone number"/>
+        
+            <div *ngFor="let number of counter(numInputs); let i = index">
+                <label>{{i}}</label>
+                <input type="number" formControlName="{{i + 1}}" placeholder="phone number">
+            </div>
+        </div>
+    
 
         <label>E-Mail:</label>
         <input id="email" formControlName="email" />
