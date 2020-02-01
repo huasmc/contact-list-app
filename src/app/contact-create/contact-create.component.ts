@@ -29,6 +29,12 @@ export class ContactCreateComponent implements OnInit {
     }
   }
 
+  removeInput() {
+    if (this.numInputs > 0) {
+      this.numInputs--;
+    }
+  }
+
   ngOnInit() {
     this.createContactForm = this.formBuilder.group({
       name: '',

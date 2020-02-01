@@ -4,7 +4,12 @@ input[type=submit] {
     background-color: #1976d2;
 }
 
-i {
+#add-number {
     cursor: pointer;
     color: rgb(48, 206, 48);
+}
+
+#remove-number {
+    cursor: pointer;
+    color: red;
 }

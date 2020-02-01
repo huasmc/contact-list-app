@@ -6,12 +6,13 @@
         <label>Name:</label>
         <input id="name" formControlName="name" />
 
-        <label>Numbers:<i (click)="addInput()" class="material-icons" >add_circle_outline</i></label>
+        <label>Numbers:<i (click)="addInput()" id="add-number" class="material-icons" >add_circle_outline</i></label>
         <div formGroupName="numbers">
             <input type="number" formControlName="0" placeholder="phone number"/>
         
             <div *ngFor="let number of counter(numInputs); let i = index">
                 <input type="number" formControlName="{{i + 1}}" placeholder="phone number">
+                <i (click)="removeInput()" id="remove-number" class="material-icons" >remove_circle_outline</i>
             </div>
         </div>
     
