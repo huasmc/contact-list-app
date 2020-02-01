@@ -13,6 +13,7 @@ export class ContactDetailsComponent implements OnInit {
   id;
   @Input() contact;
   contacts;
+  Object = Object;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,7 +26,7 @@ export class ContactDetailsComponent implements OnInit {
     
     this.route.paramMap.subscribe(params => {
       this.contact = this.contacts[+params.get('contactId')];
-      this.id = +params.get('contactId')
+      this.id = +params.get('contactId');
     })
   }
 

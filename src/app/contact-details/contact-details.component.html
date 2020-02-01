@@ -6,9 +6,12 @@
         <label>Name:</label>
         <input id="name" value="{{ contact.name }}" placeholder="-" readonly/>
 
-        <label>Number:</label>
-        <input id="number"  value="{{ contact.number }}" placeholder="-" readonly/>
-
+        <label>Numbers</label>
+        <div>        
+            <div *ngFor="let key of Object.keys(contact.numbers)">
+                <input type="number" value="{{ contact.numbers[key] }}" placeholder="phone number" readonly>
+            </div>
+        </div>
         <label>E-Mail:</label>
         <input id="email" value="{{ contact.email }}" placeholder="-" readonly/>
 
