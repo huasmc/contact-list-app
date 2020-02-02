@@ -2,11 +2,11 @@
     <a [routerLink]="['/contacts', contactId]">
         <div class="contact-row" *ngIf="contact">
             <h1 >
-                <a>{{ contact.name | uppercase }}</a>
+                <a>{{ contact.getName() | uppercase }}</a>
             </h1>
 
             <h3>
-                {{ contact.numbers[0] }}
+                {{ contact.getNumber() }}
             </h3>
         </div>
     </a>

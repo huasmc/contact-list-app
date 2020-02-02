@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
 
+import { Contact } from '../models/contact'
 @Injectable({
   providedIn: 'root'
 })
@@ -9,7 +11,13 @@ export class ContactService {
 
   getContacts() {
     let localStorageContacts = JSON.parse(localStorage.getItem('contacts'));
-    return localStorageContacts == null ? [] : localStorageContacts.contacts;
+    let contacts = localStorageContacts["contacts"]
+        .map((contact: Contact) => {
+          if(contact !== null) {
+            return new Contact().deserialize(contact);
+          }
+        });
+    return contacts === null ? [] : contacts;
   }
 
   addContact(contact) {
