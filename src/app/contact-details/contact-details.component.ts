@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ContactService } from '../contact.service';
+import { ContactService } from '../services/contact.service';
 import { Location } from '@angular/common';
 
 @Component({
