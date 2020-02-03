@@ -48,18 +48,21 @@ export class ContactCreateComponent implements OnInit {
 
   formatNumber(number) {
     return number.replace(/[^\d]+/g, '')
-    .replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+      .replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
   }
 
   formatContactData(contactData) {
-    if(contactData.phoneBook.mobileNumber) {
-      contactData.phoneBook.houseNumber =  this.formatNumber(contactData.phoneBook.houseNumber.toString());
-      } else if(contactData.phoneBook.houseNumber) {
-        contactData.phoneBook.mobileNumber =  this.formatNumber(contactData.phoneBook.mobileNumber.toString());
-      }
+    if (contactData.phoneBook.mobileNumber) {
+      contactData.phoneBook.mobileNumber = this.formatNumber(contactData.phoneBook.mobileNumber.toString());
+
+    } else if (contactData.phoneBook.houseNumber) {
+      contactData.phoneBook.houseNumber = this.formatNumber(contactData.phoneBook.houseNumber.toString());
+
+    }
   }
 
   onSubmit(contactData) {
+    this.formatContactData(contactData);
     if (contactData.invalid) {
       console.log(contactData.invalid);
       return;
