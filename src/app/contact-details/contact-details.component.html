@@ -1,26 +1,29 @@
 <div class="center" *ngIf="contact">
-    <h3>Contact Details</h3>
+    <div class="inner-container">
+        <h3>Contact Details</h3>
 
-    <div *ngIf="contact">
+        <div *ngIf="contact">
 
-        <label>Name:</label>
-        <input id="name" value="{{ contact.getName() }}" placeholder="-" readonly/>
+            <label>Name:</label>
+            <input id="name" value="{{ contact.getName() }}" placeholder="-" readonly />
 
-        <label>Numbers</label>
-        <div>        
-            <div *ngFor="let number of contact.getPhoneBook().getNumbers()">
-                <div *ngIf="number">
-                    <input type="number" value="{{ number }}" placeholder="phone number" readonly>
+            <label>Numbers</label>
+            <div>
+                <div *ngFor="let number of contact.getPhoneBook().getNumbers()">
+                    <div *ngIf="number">
+                        <input type="number" value="{{ number }}" placeholder="phone number" readonly>
+                    </div>
                 </div>
             </div>
+            <label>E-Mail:</label>
+            <input id="email" value="{{ contact.email }}" placeholder="-" readonly />
+
+            <label></label>
+            <input type="submit" [routerLink]="['/contacts/update/', contact.id]" value="Edit" />
+            <input (click)="goBack()" type="button" value="Back" />
+
         </div>
-        <label>E-Mail:</label>
-        <input id="email" value="{{ contact.email }}" placeholder="-" readonly/>
-
-        <label></label>
-        <input type="submit" [routerLink]="['/contacts/update/', id]" value="Edit"/>
-        <input (click)="goBack()" type="button" value="Back"/>
-
     </div>
+
 
 </div>

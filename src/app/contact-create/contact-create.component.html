@@ -1,27 +1,27 @@
-<div class="center">
+<div class="create-form">
     <h3>New Contact</h3>
 
     <form [formGroup]="createContactForm" (ngSubmit)="onSubmit(createContactForm.value)">
 
         <label>Name:</label>
-        <input id="name" formControlName="name" />
+        <input id="name" formControlName="name" placeholder="name"/>
 
-        <label>Numbers:<i (click)="addInput()" id="add-number" class="material-icons" >add_circle_outline</i></label>
+        <label>Numbers:<i (click)="addInput()" id="add-number" class="material-icons">add_circle_outline</i></label>
         <div formGroupName="phoneBook">
-            <input type="number" formControlName="houseNumber" placeholder="house number"/>
-        
+            <input type="number" formControlName="houseNumber" placeholder="home number" />
+
             <div *ngIf="numInputs > 0">
                 <input type="number" formControlName="mobileNumber" placeholder="mobile number">
-                <i (click)="removeInput()" id="remove-number" class="material-icons" >remove_circle_outline</i>
+                <i (click)="removeInput()" id="remove-number" class="material-icons">remove_circle_outline</i>
             </div>
         </div>
-    
+
 
         <label>E-Mail:</label>
-        <input id="email" formControlName="email" />
+        <input id="email" formControlName="email" placeholder="example@gmail.com" />
 
         <label></label>
-        <input type="submit" value="Submit"/>
+        <input type="submit" value="Submit" [disabled]="createContactForm.invalid" />
 
     </form>
 

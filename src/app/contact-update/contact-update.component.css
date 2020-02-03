@@ -1,3 +1,9 @@
+/* Cemter Container */
+.inner-container {
+    outline: 1px solid black;
+    outline-offset: 1.9em;
+}
+
 /* Buttons */
 
 input[type=submit] {

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ContactService } from '../services/contact.service';
 import { Router } from '@angular/router';
 
@@ -10,8 +10,11 @@ import { Router } from '@angular/router';
 })
 export class ContactCreateComponent implements OnInit {
 
-  createContactForm;
+  createContactForm: FormGroup;
   numInputs: number = 0;
+  @Input() contact;
+  @Input() index;
+  @Output() sendModalClose = new EventEmitter<boolean>();
 
   constructor(
     private formBuilder: FormBuilder,
@@ -19,8 +22,15 @@ export class ContactCreateComponent implements OnInit {
     private router: Router,
   ) { }
 
-  counter(i: number) {
-    return new Array(i);
+  ngOnInit() {
+    this.createContactForm = this.formBuilder.group({
+      name: '',
+      email: '',
+      phoneBook: this.formBuilder.group({ // make a nested group
+        houseNumber: '',
+        mobileNumber: '',
+      }),
+    })
   }
 
   addInput() {
@@ -35,19 +45,17 @@ export class ContactCreateComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
-    this.createContactForm = this.formBuilder.group({
-      name: '',
-      email: '',
-      phoneBook: this.formBuilder.group({ // make a nested group
-        houseNumber: '',
-        mobileNumber: '',
-      }),
-    })
-  }
-
   onSubmit(contactData) {
+    if (contactData.invalid) {
+      console.log(contactData.invalid);
+      return;
+    }
     this.contactService.addContact(contactData);
-    this.router.navigate(['/']);
+    this.sendModalClose.emit(false);
+    this.createContactForm.reset();
+    this.router.navigateByUrl('/create', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/']);
+    });
+
   }
 }

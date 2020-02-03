@@ -1,26 +1,29 @@
 <div class="center">
-    <h3>Edit Contact</h3>
+    <div class="inner-container">
+        <h3>Edit Contact</h3>
 
-    <div *ngIf="contact">
 
-        <label>Name:</label>
-        <input type="text" [(ngModel)]="contact.name"  placeholder="-"/>
+        <div *ngIf="contact">
 
-        <label>Numbers:<i (click)="addInput()" id="add-number" class="material-icons" >add_circle_outline</i></label>
-        <input type="number" [(ngModel)]="contact.numbers[0]" placeholder="phone number"/>
-        
-        <div *ngFor="let number of counter(numInputs), let i = index">
-            <input type="number" [(ngModel)]="contact.numbers[i + 1]" placeholder="phone number">
-            <i (click)="removeNumber(i + 1)" id="remove-number" class="material-icons" >remove_circle_outline</i>
+            <label>Name:</label>
+            <input type="text" [(ngModel)]="contact.name" placeholder="-" />
+
+            <label>Numbers:<i (click)="addInput()" id="add-number" class="material-icons">add_circle_outline</i></label>
+            <input type="number" [(ngModel)]="contact.phoneBook.houseNumber" placeholder="home number" />
+
+            <div *ngIf="contact.phoneBook.mobileNumber || numInputs === 1; else new_number">
+                <input type="number" [(ngModel)]="contact.phoneBook.mobileNumber" placeholder="phone number" />
+                <i (click)="removeNumber()" id="remove-number" class="material-icons">remove_circle_outline</i>
+            </div>
+
+            <label>E-Mail:</label>
+            <input type="email" [(ngModel)]="contact.email" placeholder="-" />
+
+            <label></label>
+            <input type="submit" value="Update" (click)="onSubmitUpdate()" />
+            <input (click)="onSubmitDelete()" id="delete" type="submit" value="Delete" />
+
         </div>
-
-        <label>E-Mail:</label>
-        <input type="email" [(ngModel)]="contact.email" placeholder="-"/>
-
-        <label></label>
-        <input type="submit" value="Update" (click)="onSubmitUpdate()"/>
-        <input (click)="onSubmitDelete()" id="delete" type="submit" value="Delete"/>
-
     </div>
 
 </div>

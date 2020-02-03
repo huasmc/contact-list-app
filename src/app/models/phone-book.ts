@@ -18,18 +18,26 @@ export class PhoneBook implements Deserializable {
         return this.houseNumber;
     }
 
-    getOfficeNumber() {
+    getMoibleNumber() {
         return this.mobileNumber;
     }
 
     getNumbers() {
         let numbers = [];
-        if(this.houseNumber) {
+        if (this.houseNumber) {
             numbers.push(this.houseNumber);
-            if(this.mobileNumber) {
+            if (this.mobileNumber) {
                 numbers.push(this.mobileNumber);
             }
         }
         return numbers;
+    }
+
+    setHouseNumber(number) {
+        this.houseNumber = number;
+    }
+
+    setMobileNumber(number) {
+        this.mobileNumber = number;
     }
 }

@@ -25,14 +25,6 @@ export class Contact implements Deserializable {
         return this.email;
     }
 
-    // getNumber() {
-    //     for(var n in this.numbers) {
-    //         if(this.numbers[n] !== null) {
-    //             return this.numbers[n];
-    //         }
-    //     }
-    // }
-
     getPhoneBook() {
         return this.phoneBook;
     }

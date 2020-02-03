@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';
 
 import { Contact } from '../models/contact'
 @Injectable({
@@ -7,18 +6,15 @@ import { Contact } from '../models/contact'
 })
 export class ContactService {
 
-  constructor() { }
-
   getContacts(): Contact[] {
     let localStorageContacts = JSON.parse(localStorage.getItem('contacts'));
     var contacts = []
-    if(localStorageContacts !== null ) {
-      contacts = localStorageContacts["contacts"]
-      .map((contact: Contact) => {
-        if(contact !== null) {
-          return new Contact().deserialize(contact);
-        }
-      });
+    if (localStorageContacts !== null) {
+        contacts = localStorageContacts["contacts"]
+            .filter((contact) => contact !== undefined && contact !== null)
+            .map((contact: Contact) => {
+                return new Contact().deserialize(contact);
+            });
     }
     return contacts === null ? [] : contacts;
   }
@@ -28,39 +24,23 @@ export class ContactService {
     return new Contact().deserialize(contacts[id]);
   }
 
-  addContact(contact) {
+  addContact(contact): void {
     let contacts = this.getContacts();
     var key = contacts.length;
     contacts[key] = contact
+    contact.id = key;
     localStorage.setItem('contacts', JSON.stringify({ contacts: contacts }));
   }
 
-  updateContact(id, contact) {
+  updateContact(contact): void {
     let contacts = this.getContacts();
-    contacts[id] = contact;
+    contacts[contact.id] = contact;
     localStorage.setItem('contacts', JSON.stringify({ contacts: contacts }));
   }
 
-  removeContact(id) {
+  removeContact(id): void {
     let contacts = this.getContacts();
     delete contacts[id];
     localStorage.setItem('contacts', JSON.stringify({ contacts: contacts }));
   }
-
-  getNumbers(contact) {
-    let numbers = [];
-    let numObject = contact.numbers;
-    for(let key in contact.numbers) {
-      if (numObject[key]) {
-        numbers.push(numObject[key]);
-      }
-    }
-    return numbers;
-  }
-
-  // removeNumber(contactId, numberId) {
-  //   let contacts = this.getContacts();
-  //   delete contacts[contactId].numbers[numberId];
-  //   localStorage.setItem('contacts', JSON.stringify({ contacts: contacts }));
-  // }
 }

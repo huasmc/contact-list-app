@@ -9,12 +9,8 @@ import { ContactService } from '../services/contact.service';
 })
 export class ContactUpdateComponent implements OnInit {
 
-  id;
   contact;
-  updateForm;
-  contacts;
-  numInputs;
-  Object = Object;
+  numInputs: number = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,38 +19,37 @@ export class ContactUpdateComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.contacts = this.contactService.getContacts();
-
     this.route.paramMap.subscribe(params => {
-      this.contact = this.contacts[+params.get('contactId')];
-      this.id = +params.get('contactId')
+      this.contact = this.contactService.getContact(+params.get('contactId'));
+      console.log(this.contact)
     })
-    this.numInputs = this.contactService.getNumbers(this.contact).length - 1;
-  }
-
-  removeNumber(numberId) {
-    console.log(numberId)
-    this.contactService.removeNumber(this.id, numberId);
-    this.router.navigate(['/contacts/', this.id]);
-  }
-
-  counter(i: number) {
-    return new Array(i);
   }
 
   addInput() {
-    if(this.numInputs < 2) {
+    if (this.numInputs < 2) {
       this.numInputs++;
     }
   }
 
+  removeInput() {
+    if (this.numInputs > 0) {
+      this.numInputs--;
+    }
+  }
+
+  removeNumber() {
+    this.contact.phoneBook.setMobileNumber(null);
+    this.removeInput();
+  }
+
   onSubmitUpdate() {
-    this.contactService.updateContact(this.id, this.contact);
-    this.router.navigate(['/contacts/', this.id])
+    console.log(this.contact);
+    this.contactService.updateContact(this.contact);
+    this.router.navigate(['/contacts/', this.contact.id])
   }
 
   onSubmitDelete() {
-    this.contactService.removeContact(this.id);
+    this.contactService.removeContact(this.contact.id);
     this.router.navigate(['/']);
   }
 }

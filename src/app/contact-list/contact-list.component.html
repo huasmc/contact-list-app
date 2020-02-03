@@ -1,13 +1,11 @@
-<div *ngFor="let contact of contacts; index as contactId">
-    <a [routerLink]="['/contacts', contactId]">
-        <div class="contact-row" *ngIf="contact">
-            <h1 >
-                <a>{{ contact.getName() | uppercase }}</a>
-            </h1>
 
-            <h3>
-                {{ contact.getPhoneBook().getHouseNumber() }}
-            </h3>
-        </div>
-    </a>
+<div>
+    <h1 class="no-contacts" *ngIf="contacts?.length === 0">No contacts</h1>
 </div>
+<div *ngFor="let contact of contacts; let i = index">
+    <app-contact  [contact]="contact" [index]="i"></app-contact>
+</div>
+
+
+
+        

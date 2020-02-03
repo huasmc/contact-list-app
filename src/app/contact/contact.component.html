@@ -1,0 +1,12 @@
+<div class="contact-row" *ngIf="contact">
+    <a [routerLink]="['/contacts', contact.id]">
+
+        <h1>
+            <a>{{ contact.getName() | uppercase }}</a>
+        </h1>
+
+        <h3>
+            Home number: {{ contact.getPhoneBook().getHouseNumber() }}
+        </h3>
+    </a>
+</div>

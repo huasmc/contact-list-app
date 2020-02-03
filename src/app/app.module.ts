@@ -9,6 +9,9 @@ import { ContactCreateComponent } from './contact-create/contact-create.componen
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContactDetailsComponent } from './contact-details/contact-details.component';
 import { ContactUpdateComponent } from './contact-update/contact-update.component';
+import { ModalComponent } from './modal/modal.component';
+import { ContactComponent } from './contact/contact.component';
+import { BackdropComponent } from './backdrop/backdrop.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { ContactUpdateComponent } from './contact-update/contact-update.componen
     ContactListComponent,
     ContactCreateComponent,
     ContactDetailsComponent,
-    ContactUpdateComponent
+    ContactUpdateComponent,
+    ModalComponent,
+    ContactComponent,
+    BackdropComponent
   ],
   imports: [
     BrowserModule,
