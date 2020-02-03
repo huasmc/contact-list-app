@@ -2,8 +2,8 @@ import { Deserializable } from '../interfaces/deserializable';
 
 export class PhoneBook implements Deserializable {
     private id: number;
-    private houseNumber: number;
-    private mobileNumber?: number;
+    private houseNumber: string;
+    private mobileNumber?: string;
 
     deserialize(input: any) {
         Object.assign(this, input);

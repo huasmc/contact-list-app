@@ -9,10 +9,10 @@
             <input type="text" [(ngModel)]="contact.name" placeholder="-" />
 
             <label>Numbers:<i (click)="addInput()" id="add-number" class="material-icons">add_circle_outline</i></label>
-            <input type="number" [(ngModel)]="contact.phoneBook.houseNumber" placeholder="home number" />
+            <input type="text" [(ngModel)]="contact.phoneBook.houseNumber" placeholder="home number"  pattern="/^-?\d+\.?\d*$/"maxlength="10" />
 
             <div *ngIf="contact.phoneBook.mobileNumber || numInputs === 1; else new_number">
-                <input type="number" [(ngModel)]="contact.phoneBook.mobileNumber" placeholder="phone number" />
+                <input type="text" [(ngModel)]="contact.phoneBook.mobileNumber" placeholder="phone number" pattern="/^-?\d+\.?\d*$/" maxlength="10" />
                 <i (click)="removeNumber()" id="remove-number" class="material-icons">remove_circle_outline</i>
             </div>
 

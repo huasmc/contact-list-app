@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ContactService } from '../services/contact.service';
 import { Router } from '@angular/router';
+import { FormatterService } from '../services/formatter.service';
 
 @Component({
   selector: 'app-contact-create',
@@ -20,6 +21,7 @@ export class ContactCreateComponent implements OnInit {
     private formBuilder: FormBuilder,
     private contactService: ContactService,
     private router: Router,
+    private formatter: FormatterService
   ) { }
 
   ngOnInit() {
@@ -45,7 +47,19 @@ export class ContactCreateComponent implements OnInit {
     }
   }
 
+
+  formatContactData(contactData) {
+    if (contactData.phoneBook.mobileNumber) {
+      contactData.phoneBook.mobileNumber = this.formatter.formatNumber(contactData.phoneBook.mobileNumber.toString());
+    } 
+    if (contactData.phoneBook.houseNumber) {
+      contactData.phoneBook.houseNumber = this.formatter.formatNumber(contactData.phoneBook.houseNumber.toString());
+
+    }
+  }
+
   onSubmit(contactData) {
+    this.formatContactData(contactData);
     if (contactData.invalid) {
       console.log(contactData.invalid);
       return;
