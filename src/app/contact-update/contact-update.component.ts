@@ -42,7 +42,18 @@ export class ContactUpdateComponent implements OnInit {
     this.removeInput();
   }
 
+  formatNumber(number) {
+    return number.replace(/[^\d]+/g, '')
+    .replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+  }
+
   onSubmitUpdate() {
+    if(this.contact.phoneBook.mobileNumber) {
+      this.contact.phoneBook.mobileNumber =  this.formatNumber(this.contact.phoneBook.mobileNumber);
+    } else if(this.contact.phoneBook.houseNumber) {
+      this.contact.phoneBook.houseNumber =  this.formatNumber(this.contact.phoneBook.houseNumber);
+    }
+
     console.log(this.contact);
     this.contactService.updateContact(this.contact);
     this.router.navigate(['/contacts/', this.contact.id])

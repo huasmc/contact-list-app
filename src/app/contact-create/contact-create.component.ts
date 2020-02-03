@@ -31,6 +31,7 @@ export class ContactCreateComponent implements OnInit {
         mobileNumber: '',
       }),
     })
+    console.log(this.formatNumber('1231555553'))
   }
 
   addInput() {
@@ -43,6 +44,19 @@ export class ContactCreateComponent implements OnInit {
     if (this.numInputs > 0) {
       this.numInputs--;
     }
+  }
+
+  formatNumber(number) {
+    return number.replace(/[^\d]+/g, '')
+    .replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+  }
+
+  formatContactData(contactData) {
+    if(contactData.phoneBook.mobileNumber) {
+      contactData.phoneBook.houseNumber =  this.formatNumber(contactData.phoneBook.houseNumber.toString());
+      } else if(contactData.phoneBook.houseNumber) {
+        contactData.phoneBook.mobileNumber =  this.formatNumber(contactData.phoneBook.mobileNumber.toString());
+      }
   }
 
   onSubmit(contactData) {
