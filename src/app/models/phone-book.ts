@@ -26,4 +26,18 @@ export class PhoneBook implements Deserializable {
     getfaxNumber() {
         return this.faxNumber;
     }
+
+    getNumbers() {
+        let numbers = [];
+        if(this.houseNumber) {
+            numbers.push(this.houseNumber);
+            if(this.officeNumber) {
+                numbers.push(this.officeNumber);
+                if(this.faxNumber) {
+                    numbers.push(this.faxNumber);
+                }
+            }
+        }
+        return numbers;
+    }
 }

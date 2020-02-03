@@ -5,10 +5,11 @@ export class Contact implements Deserializable {
     private id: number;
     private name: string;
     private email: string;
-    private numbers: PhoneBook;
+    private phoneBook: PhoneBook;
 
     deserialize(input: any) {
         Object.assign(this, input);
+        this.phoneBook = new PhoneBook().deserialize(input.phoneBook);
         return this;
     }
 
@@ -24,16 +25,15 @@ export class Contact implements Deserializable {
         return this.email;
     }
 
-    getNumber() {
-        for(var n in this.numbers) {
-            if(this.numbers[n] !== null) {
-                return this.numbers[n];
-            }
-        }
-    }
+    // getNumber() {
+    //     for(var n in this.numbers) {
+    //         if(this.numbers[n] !== null) {
+    //             return this.numbers[n];
+    //         }
+    //     }
+    // }
 
-    getNumbers() {
-        console.log(this.numbers)
-        return this.numbers;
+    getPhoneBook() {
+        return this.phoneBook;
     }
 }
