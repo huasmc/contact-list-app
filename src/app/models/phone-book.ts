@@ -3,8 +3,7 @@ import { Deserializable } from '../interfaces/deserializable';
 export class PhoneBook implements Deserializable {
     private id: number;
     private houseNumber: number;
-    private officeNumber?: number;
-    private faxNumber?: number;
+    private mobileNumber?: number;
 
     deserialize(input: any) {
         Object.assign(this, input);
@@ -20,22 +19,15 @@ export class PhoneBook implements Deserializable {
     }
 
     getOfficeNumber() {
-        return this.officeNumber;
-    }
-
-    getfaxNumber() {
-        return this.faxNumber;
+        return this.mobileNumber;
     }
 
     getNumbers() {
         let numbers = [];
         if(this.houseNumber) {
             numbers.push(this.houseNumber);
-            if(this.officeNumber) {
-                numbers.push(this.officeNumber);
-                if(this.faxNumber) {
-                    numbers.push(this.faxNumber);
-                }
+            if(this.mobileNumber) {
+                numbers.push(this.mobileNumber);
             }
         }
         return numbers;

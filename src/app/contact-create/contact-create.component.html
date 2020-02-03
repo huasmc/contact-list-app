@@ -11,7 +11,7 @@
             <input type="number" formControlName="houseNumber" placeholder="house number"/>
         
             <div *ngIf="numInputs > 0">
-                <input type="number" formControlName="{{ mobileNumber }}" placeholder="mobile number">
+                <input type="number" formControlName="mobileNumber" placeholder="mobile number">
                 <i (click)="removeInput()" id="remove-number" class="material-icons" >remove_circle_outline</i>
             </div>
         </div>

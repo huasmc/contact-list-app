@@ -10,9 +10,7 @@ import { Location } from '@angular/common';
 })
 export class ContactDetailsComponent implements OnInit {
 
-  id;
   @Input() contact;
-  contacts;
   Object = Object;
 
   constructor(
@@ -21,16 +19,14 @@ export class ContactDetailsComponent implements OnInit {
     private location: Location
   ) { }
 
-  ngOnInit() {
-    this.contacts = this.contactService.getContacts();
-    
+  ngOnInit() {    
     this.route.paramMap.subscribe(params => {
-      this.contact = this.contacts[+params.get('contactId')];
-      this.id = +params.get('contactId');
+      this.contact = this.contactService.getContact(+params.get('contactId'));
     })
   }
 
   goBack(): void {
+    console.log(this.contact.getPhoneBook().getNumbers())
     this.location.back();
   }
 

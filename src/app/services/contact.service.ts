@@ -9,15 +9,23 @@ export class ContactService {
 
   constructor() { }
 
-  getContacts() {
+  getContacts(): Contact[] {
     let localStorageContacts = JSON.parse(localStorage.getItem('contacts'));
-    let contacts = localStorageContacts["contacts"]
-        .map((contact: Contact) => {
-          if(contact !== null) {
-            return new Contact().deserialize(contact);
-          }
-        });
+    var contacts = []
+    if(localStorageContacts !== null ) {
+      contacts = localStorageContacts["contacts"]
+      .map((contact: Contact) => {
+        if(contact !== null) {
+          return new Contact().deserialize(contact);
+        }
+      });
+    }
     return contacts === null ? [] : contacts;
+  }
+
+  getContact(id: number): Contact {
+    let contacts = this.getContacts();
+    return new Contact().deserialize(contacts[id]);
   }
 
   addContact(contact) {
@@ -50,9 +58,9 @@ export class ContactService {
     return numbers;
   }
 
-  removeNumber(contactId, numberId) {
-    let contacts = this.getContacts();
-    delete contacts[contactId].numbers[numberId];
-    localStorage.setItem('contacts', JSON.stringify({ contacts: contacts }));
-  }
+  // removeNumber(contactId, numberId) {
+  //   let contacts = this.getContacts();
+  //   delete contacts[contactId].numbers[numberId];
+  //   localStorage.setItem('contacts', JSON.stringify({ contacts: contacts }));
+  // }
 }

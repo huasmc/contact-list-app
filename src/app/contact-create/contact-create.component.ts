@@ -41,10 +41,9 @@ export class ContactCreateComponent implements OnInit {
       email: '',
       phoneBook: this.formBuilder.group({ // make a nested group
         houseNumber: '',
-        mobileNumber: ''
+        mobileNumber: '',
       }),
     })
-    console.log(this.createContactForm)
   }
 
   onSubmit(contactData) {

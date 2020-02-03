@@ -4,13 +4,13 @@
     <div *ngIf="contact">
 
         <label>Name:</label>
-        <input id="name" value="{{ contact.name }}" placeholder="-" readonly/>
+        <input id="name" value="{{ contact.getName() }}" placeholder="-" readonly/>
 
         <label>Numbers</label>
         <div>        
-            <div *ngFor="let key of Object.keys(contact.numbers)">
-                <div *ngIf="contact.numbers[key]">
-                    <input type="number" value="{{ contact.numbers[key] }}" placeholder="phone number" readonly>
+            <div *ngFor="let number of contact.getPhoneBook().getNumbers()">
+                <div *ngIf="number">
+                    <input type="number" value="{{ number }}" placeholder="phone number" readonly>
                 </div>
             </div>
         </div>
