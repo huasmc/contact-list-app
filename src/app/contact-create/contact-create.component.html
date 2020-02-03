@@ -9,13 +9,11 @@
         <label>Numbers:<i (click)="addInput()" id="add-number" class="material-icons">add_circle_outline</i></label>
         <div formGroupName="phoneBook">
             <input type="number" formControlName="houseNumber" placeholder="home number"
-                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                type="number" maxlength="10" />
+                onKeyPress="if(this.value.length==10) return false;" />
 
             <div *ngIf="numInputs > 0">
-                <input type="number" formControlName="mobileNumber" placeholder="mobile number" maxlength="10"
-                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                    type="number" maxlength="10">
+                <input type="number" formControlName="mobileNumber" placeholder="mobile number"
+                    onKeyPress="if(this.value.length==10) return false;">
                 <i (click)="removeInput()" id="remove-number" class="material-icons">remove_circle_outline</i>
             </div>
         </div>
