@@ -39,12 +39,12 @@ export class ContactCreateComponent implements OnInit {
     this.createContactForm = this.formBuilder.group({
       name: '',
       email: '',
-      numbers: this.formBuilder.group({ // make a nested group
-        0: '',
-        1: '',
-        2: '',
+      phoneBook: this.formBuilder.group({ // make a nested group
+        houseNumber: '',
+        mobileNumber: ''
       }),
     })
+    console.log(this.createContactForm)
   }
 
   onSubmit(contactData) {
