@@ -16,10 +16,10 @@
                 </div>
             </div>
             <label>E-Mail:</label>
-            <input id="email" value="{{ contact.email }}" placeholder="-" readonly />
+            <input id="email" value="{{ contact.getEmail() }}" placeholder="-" readonly />
 
             <label></label>
-            <input type="submit" [routerLink]="['/contacts/update/', contact.id]" value="Edit" />
+            <input type="submit" [routerLink]="['/contacts/update/', contact.getId()]" value="Edit" />
             <input (click)="goBack()" type="button" value="Back" />
 
         </div>

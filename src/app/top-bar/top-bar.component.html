@@ -5,7 +5,7 @@
   </a>
     <div class="spacer"></div>
   <a class="button fancy-button" (click)="showModalHandler($event)"><i class="material-icons">add_circle_outline</i>Add contact</a>
-  <app-modal [modalShow]="modalShow" [component]="create" [importedContact]="contact"
+  <app-modal [modalShow]="modalShow" [importedContact]="contact"
   (sendModalClose)="closeModalHandler($event)">
 </app-modal>
 </div>
