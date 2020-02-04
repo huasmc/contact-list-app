@@ -1,0 +1,67 @@
+{
+    "contacts": [
+        {
+            "name": "Enrique",
+            "email": "enrique@gmail.com",
+            "phoneBook": {
+                "houseNumber": "(293) 842-9384",
+                "mobileNumber": "(392) 348-2394"
+            },
+            "id": 0
+        },
+        {
+            "name": "Yenny",
+            "email": "yenny@gmail.com",
+            "phoneBook": {
+                "houseNumber": "(398) 493-5893",
+                "mobileNumber": "(495) 893-4898"
+            },
+            "id": 1
+        },
+        {
+            "name": "Yannik",
+            "email": "yannik@gmail.com",
+            "phoneBook": {
+                "houseNumber": "(239) 482-9384",
+                "mobileNumber": "(394) 583-4948"
+            },
+            "id": 2
+        },
+        {
+            "name": "Mike",
+            "email": "mike@gmail.com",
+            "phoneBook": {
+                "houseNumber": "(239) 482-3948",
+                "mobileNumber": "(239) 849-2384"
+            },
+            "id": 3
+        },
+        {
+            "name": "Jose",
+            "email": "jose@gmail.com",
+            "phoneBook": {
+                "houseNumber": "(948) 549-5849",
+                "mobileNumber": "(948) 549-5849"
+            },
+            "id": 4
+        },
+        {
+            "name": "Luis",
+            "email": "luis@gmail.com",
+            "phoneBook": {
+                "houseNumber": "(398) 459-4859",
+                "mobileNumber": "(495) 894-5849"
+            },
+            "id": 5
+        },
+        {
+            "name": "Angular",
+            "email": "angular@gmail.com",
+            "phoneBook": {
+                "houseNumber": "(777) 777-7777",
+                "mobileNumber": "(777) 777-7777"
+            },
+            "id": 6
+        }
+    ]
+}
