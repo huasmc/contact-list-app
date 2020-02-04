@@ -6,7 +6,10 @@
         <label>Name:</label>
         <input id="name" formControlName="name" placeholder="name" />
 
-        <label>Numbers:<i (click)="addInput()" id="add-number" class="material-icons">add_circle_outline</i></label>
+        <label>Numbers:<i (click)="addInput()" id="add-number" class="material-icons">add_circle_outline</i>
+            <i (click)="removeInput()" id="remove-number" class="material-icons">remove_circle_outline</i>
+
+        </label>
         <div formGroupName="phoneBook">
             <input type="number" formControlName="houseNumber" placeholder="home number"
                 onKeyPress="if(this.value.length==10) return false;" />
@@ -14,7 +17,6 @@
             <div *ngIf="numInputs > 0">
                 <input type="number" formControlName="mobileNumber" placeholder="mobile number"
                     onKeyPress="if(this.value.length==10) return false;">
-                <i (click)="removeInput()" id="remove-number" class="material-icons">remove_circle_outline</i>
             </div>
         </div>
 

@@ -18,6 +18,7 @@ export class TopBarComponent implements OnInit {
   }
 
   showModalHandler(event) {
+    console.log('hi')
     // this.backDropShow = true;
     this.modalShow = true;
     // this.router.navigate(['/contactList', this.index, 'edit']);

@@ -1,23 +1,48 @@
+:host {
+    padding: 18% 0;
+    width: 100%;
+}
 /* Submit Button */
 
 input[type=submit] {
+    margin-top: 1.4vw;
     background-color: #1976d2;
 }
 
+/* Create Form */
 .create-form {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    height: 600px;
+    width: 100%;
   }
 
+.create-form form {
+    width: 90%;
+}
+
+ /* Add Number Button */
 #add-number {
     cursor: pointer;
     color: rgb(48, 206, 48);
 }
 
+/* Remove Number Button */
 #remove-number {
     cursor: pointer;
     color: red;
+}
+
+/* Input Boxes */
+input {
+    width: 100%;
+    padding: 5px;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    padding: 2.7vw;
+}
+
+label {
+    margin:  1.9vw;
 }
