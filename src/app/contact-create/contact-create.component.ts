@@ -36,7 +36,7 @@ export class ContactCreateComponent implements OnInit {
   }
 
   addInput() {
-    if (this.numInputs < 2) {
+    if (this.numInputs !== 1) {
       this.numInputs++;
     }
   }
