@@ -20,7 +20,7 @@ export class Contact implements Deserializable {
     getName() {
         return this.name;
     }
-    
+
     getEmail() {
         return this.email;
     }

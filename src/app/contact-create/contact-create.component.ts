@@ -13,8 +13,8 @@ export class ContactCreateComponent implements OnInit {
 
   createContactForm: FormGroup;
   numInputs: number = 0;
-  @Input() contact;
-  @Input() index;
+  // @Input() contact;
+  // @Input() index;
   @Output() sendModalClose = new EventEmitter<boolean>();
 
   constructor(
@@ -51,7 +51,7 @@ export class ContactCreateComponent implements OnInit {
   formatContactData(contactData) {
     if (contactData.phoneBook.mobileNumber) {
       contactData.phoneBook.mobileNumber = this.formatter.formatNumber(contactData.phoneBook.mobileNumber.toString());
-    } 
+    }
     if (contactData.phoneBook.houseNumber) {
       contactData.phoneBook.houseNumber = this.formatter.formatNumber(contactData.phoneBook.houseNumber.toString());
 

@@ -1,5 +1,5 @@
 <div class="contact-row" *ngIf="contact">
-    <a [routerLink]="['/contacts', contact.id]">
+    <a [routerLink]="['/contacts', index]">
 
         <h1>
             <a>{{ contact.getName() | uppercase }}</a>

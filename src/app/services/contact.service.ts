@@ -1,20 +1,29 @@
 import { Injectable } from '@angular/core';
 
 import { Contact } from '../models/contact'
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class ContactService {
 
   getContacts(): Contact[] {
     let localStorageContacts = JSON.parse(localStorage.getItem('contacts'));
     var contacts = []
     if (localStorageContacts !== null) {
-        contacts = localStorageContacts["contacts"]
-            .filter((contact) => contact !== undefined && contact !== null)
-            .map((contact: Contact) => {
-                return new Contact().deserialize(contact);
-            });
+      contacts = localStorageContacts["contacts"]
+        .filter((contact) => contact !== undefined && contact !== null)
+        .map((contact: Contact) => {
+          return new Contact().deserialize(contact);
+        }).sort(function(a, b){
+          var nameA=a.name.toLowerCase(), nameB=b.name.toLowerCase()
+          if (nameA < nameB) //sort string ascending
+              return -1 
+          if (nameA > nameB)
+              return 1
+          return 0 //default return value (no sorting)
+      })
     }
     return contacts === null ? [] : contacts;
   }

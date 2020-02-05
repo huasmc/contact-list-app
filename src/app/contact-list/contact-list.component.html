@@ -1,11 +1,6 @@
-
 <div>
     <h1 class="no-contacts" *ngIf="contacts?.length === 0">No contacts</h1>
 </div>
 <div *ngFor="let contact of contacts; let i = index">
-    <app-contact  [contact]="contact" [index]="i"></app-contact>
+    <app-contact [contact]="contact" [index]="i"></app-contact>
 </div>
-
-
-
-        

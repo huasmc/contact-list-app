@@ -19,7 +19,7 @@
             <input id="email" value="{{ contact.getEmail() }}" placeholder="-" readonly />
 
             <label></label>
-            <input type="submit" [routerLink]="['/contacts/update/', contact.getId()]" value="Edit" />
+            <input type="submit" [routerLink]="['/contacts/update/', id]" value="Edit" />
             <input (click)="goBack()" type="button" value="Back" />
 
         </div>

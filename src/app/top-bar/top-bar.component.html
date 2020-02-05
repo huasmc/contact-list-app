@@ -3,12 +3,9 @@
     <i class="material-icons">contacts</i>
     <span id="contacts-title">Contacts</span>
   </a>
-    <div class="spacer"></div>
-  <a class="button fancy-button" (click)="showModalHandler($event)"><i class="material-icons">add_circle_outline</i>Add contact</a>
-  <app-modal [modalShow]="modalShow" [importedContact]="contact"
-  (sendModalClose)="closeModalHandler($event)">
-</app-modal>
+  <div class="spacer"></div>
+  <a class="button fancy-button" (click)="showModalHandler($event)"><i class="material-icons">add_circle_outline</i>Add
+    contact</a>
+  <app-modal [modalShow]="modalShow" (sendModalClose)="closeModalHandler($event)">
+  </app-modal>
 </div>
-
-
-<!-- [routerLink]="['/create']" -->

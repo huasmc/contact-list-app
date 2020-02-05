@@ -7,9 +7,9 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ModalComponent {
 
-  @Input() importedContact;
+  // @Input() importedContact;
   @Input() modalShow;
-  @Input() component;
+  // @Input() component;
   @Output() sendModalClose = new EventEmitter<boolean>();
 
   closeModalHandler(event) {

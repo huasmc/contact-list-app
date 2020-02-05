@@ -46,15 +46,15 @@ export class ContactUpdateComponent implements OnInit {
 
   formatNumber(number) {
     return number.replace(/[^\d]+/g, '')
-    .replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+      .replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
   }
-  
+
   formatContactData() {
-    if(this.contact.phoneBook.mobileNumber) {
-      this.contact.phoneBook.mobileNumber =  this.formatter.formatNumber(this.contact.phoneBook.mobileNumber);
-    } 
-    if(this.contact.phoneBook.houseNumber) {
-      this.contact.phoneBook.houseNumber =  this.formatter.formatNumber(this.contact.phoneBook.houseNumber);
+    if (this.contact.phoneBook.mobileNumber) {
+      this.contact.phoneBook.mobileNumber = this.formatter.formatNumber(this.contact.phoneBook.mobileNumber);
+    }
+    if (this.contact.phoneBook.houseNumber) {
+      this.contact.phoneBook.houseNumber = this.formatter.formatNumber(this.contact.phoneBook.houseNumber);
     }
   }
 

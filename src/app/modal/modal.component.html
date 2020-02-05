@@ -1,8 +1,7 @@
 <app-backdrop [backDropShow]="modalShow" (sendBackDropClose)="closeModalHandler($event)"></app-backdrop>
-<div class="Modal"
-    [ngStyle]="{
+<div class="Modal" [ngStyle]="{
         transform: modalShow? 'translateY(0)' : 'translateY(-300vh)',
         opacity: modalShow? '1' : '0'
     }">
-    <app-contact-create [contact]="importedContact" (sendModalClose)="closeModalHandler($event)"></app-contact-create>
+    <app-contact-create (sendModalClose)="closeModalHandler($event)"></app-contact-create>
 </div>
