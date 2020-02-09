@@ -1,7 +1,15 @@
+:host {
+    display: inline;
+    overflow: auto;
+}
+
+.contact-form {
+ 
+}
 /* Cemter Container */
 .inner-container {
-    outline: 1px solid black;
-    outline-offset: 1.9em;
+    /* outline: 1px solid black; */
+    /* outline-offset: 1.9em; */
 }
 
 /* Input Fields */

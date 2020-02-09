@@ -41,9 +41,9 @@ export class ContactService {
     localStorage.setItem('contacts', JSON.stringify({ contacts: contacts }));
   }
 
-  updateContact(contact): void {
+  updateContact(id, contact): void {
     let contacts = this.getContacts();
-    contacts[contact.id] = contact;
+    contacts[id] = contact;
     localStorage.setItem('contacts', JSON.stringify({ contacts: contacts }));
   }
 

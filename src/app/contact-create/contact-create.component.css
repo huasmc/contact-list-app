@@ -9,16 +9,9 @@ input[type=submit] {
     background-color: #1976d2;
 }
 
-/* Create Form */
-.create-form {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
 
-.create-form form {
+
+.contact-form form {
     width: 90%;
 }
 
@@ -38,6 +31,7 @@ input[type=submit] {
 input {
     width: 100%;
     margin: 0;
+    box-sizing: border-box;
     -webkit-box-sizing: border-box;
     padding: 15px;
     margin-bottom: 15px;

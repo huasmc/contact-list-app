@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ContactService } from '../services/contact.service';
 import { FormatterService } from '../services/formatter.service';
+import { Contact } from '../models/contact';
 
 @Component({
   selector: 'app-contact-update',
@@ -12,6 +13,7 @@ export class ContactUpdateComponent implements OnInit {
 
   contact;
   numInputs: number = 0;
+  id: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,7 +25,7 @@ export class ContactUpdateComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.contact = this.contactService.getContact(+params.get('contactId'));
-      console.log(this.contact)
+      this.id = +params.get('contactId');
     })
   }
 
@@ -61,12 +63,12 @@ export class ContactUpdateComponent implements OnInit {
   onSubmitUpdate() {
     this.formatContactData()
     console.log(this.contact);
-    this.contactService.updateContact(this.contact);
-    this.router.navigate(['/contacts/', this.contact.id])
+    this.contactService.updateContact(this.id, this.contact);
+    this.router.navigate(['/contacts/', this.id])
   }
 
   onSubmitDelete() {
-    this.contactService.removeContact(this.contact.id);
+    this.contactService.removeContact(this.id);
     this.router.navigate(['/']);
   }
 }

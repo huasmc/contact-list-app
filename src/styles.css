@@ -2,48 +2,72 @@
   font-family: Lato;
 }
 
-.center {
-  width:400px;
-  height:400px;
-  position:absolute;
-  top:50%;
-  left:52%;
-  margin-left:-210px; /* width / -2 */
-  margin-top:-270px; /* height / -2 */
+html {
+  height: 100vh;
 }
 
- /* Input */
-
-input {
-  font-size: 14px;
-  border-radius: 6px;
-  padding: 15px;
-  margin-bottom: 16px;
-  border: 1px solid #BDBDBD;
-  font-size: 19px;
+body {
+  margin: 0;
+  height: 100%;
 }
 
-label {
-  font-size: 12px;
-  font-weight: bold;
-  margin-bottom: 4px;
-  display: block;
-  text-transform: uppercase;
+app-root {
+  height: 100%;
+  margin: 0;
 }
 
-.center {
+/* Contact Form */
+.contact-form {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: 600px;
+  vertical-align: middle;
+  margin-top: 6%;
 }
 
-input[type=submit] {
-  width: 100%;
-  border-radius: 6px;
-  font-size: 14px;
-  cursor: pointer;
-  color: white;
-  border: none;
+.inner-container {
+  border: 1px black solid !important;
+  padding: 2em;
+}
+
+  /* Input */
+  
+  input {
+    font-size: 14px;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 16px;
+    border: 1px solid #BDBDBD;
+    font-size: 19px;
+  }
+  
+  label {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 4px;
+    display: block;
+    text-transform: uppercase;
+  }
+  
+  input[type=submit] {
+    width: 100%;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    color: white;
+    border: none;
+  }
+
+    /* small size viewport */ 
+@media screen and (max-width: 960px) {
+  .inner-container {
+    border: 0 !important;
+    padding: 0;
+  }
+
+  .contact-form {
+    margin-top: 0;
+  }
+  
 }
