@@ -1,4 +1,4 @@
-# Contact List - Angular
+# Contact List App
 
 Click [here](https://huasmc.github.io/contact-list-app/) to see deployed app.
 
